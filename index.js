@@ -982,7 +982,7 @@ setTimeout( () => {
 //=================================================//
 Pedro.on('group-participants-update', async (anu) => {
 if(antifake.includes(anu.jid)) {
-	const mdata = await miku.groupMetadata(anu.jid)
+	const mdata = await Pedro.groupMetadata(anu.jid)
 			if (anu.action == 'add'){
 				num = anu.participants[0]
 				if(!num.split('@')[0].startsWith(55)) {
@@ -999,7 +999,7 @@ if (!welkom.includes(anu.jid)) return
          const mdata = await miku.groupMetadata(anu.jid)
          num = anu.participants[0]
          console.log(anu)
-         ini_user = miku.contacts[num]
+         ini_user = Pedro.contacts[num]
          namaewa = ini_user.notify
          member = mdata.participants.length
 
@@ -1009,7 +1009,7 @@ if (!welkom.includes(anu.jid)) return
                var ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
             }
         try {
-               var ppgc = await miku.getProfilePicture(anu.jid)
+               var ppgc = await Pedro.getProfilePicture(anu.jid)
             } catch {
                var ppgc = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
             }
@@ -1022,7 +1022,7 @@ if (!welkom.includes(anu.jid)) return
             
             gbutsan = [{buttonId:`#menu`,buttonText:{displayText: 'MENU'},type:1},{buttonId:`/rg `,buttonText:{displayText:'REGISTRO📜'},type:1},{buttonId:`/criador`,buttonText:{displayText: `CRIADOR♣️`},type:1}]
 
-			mhan = await miku.prepareMessage(mdata.id, buff, MessageType.image, {thumbnail: buff})
+			mhan = await Pedro.prepareMessage(mdata.id, buff, MessageType.image, {thumbnail: buff})
 
 const buttonMessages = { imageMessage: mhan.message.imageMessage,
 
@@ -1034,7 +1034,7 @@ buttons: gbutsan,
 
 headerType: 4 }
 
-            miku.sendMessage(mdata.id, img, MessageType.image, {caption: teks, contextInfo: {'mentionedJid': [num]} })
+            Pedro.sendMessage(mdata.id, img, MessageType.image, {caption: teks, contextInfo: {'mentionedJid': [num]} })
          } else if (anu.action == 'remove') {
          img = await getBuffer(`  https://api-gdr2.herokuapp.com/api/canvas/menu?titulo=ADEUS&nome=${encodeUrl(namaewa)}&perfil=${shortpc.data}&fundo=https://i.ibb.co/VS8WPv5/c18c1803cbe0.jpg&grupo=SAIU DE ${encodeUrl(mdata.subject)}&numero=2021&membroConta=${mdata.participants.length}`)
 //         	img = await getBuffer(`https://servant-of-evil.herokuapp.com/api/swiftlite/goodbye?nama=${num.split('@')[0]}&gc=${encodeUrl(mdata.subject)}&ppgc=${shortgc.data}&pp=${shortpc.data}&bg=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxANrjm0j_uzUclnOAlHjtgroMtblwSPChJg&usqp=CAU'&member=${mdata.participants.length}&apikey=GFL`)
@@ -1043,11 +1043,11 @@ headerType: 4 }
           } else if (anu.action == 'promote') {
             img = await getBuffer(`http://hadi-api.herokuapp.com/api/card/promote?nama=${encodeUrl(namaewa)}&member=${member}&pesan=Parabéns por se tornar um adm do grupo!&pp=${shortpc.data}&bg=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxANrjm0j_uzUclnOAlHjtgroMtblwSPChJg&usqp=CAU'`)
             teks = `◪ PROMOVER DETECTADO\n\n├─ Número: ${num.replace('@s.whatsapp.net', '')}\n├─ @${num.split('@')[0]} se tornou um administrador do grupo, parabéns`
-            miku.sendMessage(mdata.id, img, MessageType.image, {caption: teks, contextInfo: {'mentionedJid': [num]}})
+            Pedro.sendMessage(mdata.id, img, MessageType.image, {caption: teks, contextInfo: {'mentionedJid': [num]}})
          } else if (anu.action == 'demote') {
             img = await getBuffer(`http://hadi-api.herokuapp.com/api/card/demote?nama=${encodeUrl(namaewa)}&member=${member}&pesan=${namaewa} virou membro comum&pp=${shortpc.data}&bg=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxANrjm0j_uzUclnOAlHjtgroMtblwSPChJg&usqp=CAU'`)
             teks = `◪ DESPROMOVER DETECTADO\n\n\n├─ Número: ${num.replace('@s.whatsapp.net', '')}\n├─  @${num.split('@')[0]} Não e mais um administrador do grupo`
-            miku.sendMessage(mdata.id, img, MessageType.image, {caption: teks, contextInfo: {'mentionedJid': [num]}})
+            Pedro.sendMessage(mdata.id, img, MessageType.image, {caption: teks, contextInfo: {'mentionedJid': [num]}})
          }
      } catch (e) {
          console.log('Error : %s', color(e, 'red'))
@@ -1061,7 +1061,7 @@ headerType: 4 }
 	})
 			
 	
-	miku.on('group-update', async (anu) => {
+	Pedro.on('group-update', async (anu) => {
 falfa = { key: {fromMe: false,participant: "0@s.whatsapp.net",
 remoteJid: "0@s.whatsapp.net"},message: {"groupInviteMessage": {"groupJid": "6288213840883-1616169743@g.us","inviteCode": "mememteeeekkeke","groupName": "Pedro", "caption": `Pedro-BOT️`, 'jpegThumbnail': fs.readFileSync(`src/logo.jpeg`)}}}
   metdata = await Pedro.groupMetadata(anu.jid)
@@ -1072,23 +1072,23 @@ remoteJid: "0@s.whatsapp.net"},message: {"groupInviteMessage": {"groupJid": "628
   }
   else if(anu.announce == 'true'){
     teks = `「 *「💡」 GRUPO FECHADO* 」\n\n_O grupo foi fechado pelo administrador_\n_Agora, apenas administradores podem enviar mensagens_`
-    miku.sendMessage(metdata.id, teks, MessageType.text, {quoted: falfa})
+    Pedro.sendMessage(metdata.id, teks, MessageType.text, {quoted: falfa})
     console.log(anu)
   }
   else if(!anu.desc == ''){
     tag = anu.descOwner.split('@')[0] + '@s.whatsapp.net'
     teks = `「 *「💡」 DESCRIÇÃO DO GRUPO ALTERADA* 」\n\nA descrição do grupo foi alterada pelo administrador wa.me/${anu.descOwner.split('@')[0]}\n• Nova Descrição : \n${anu.desc}`
-    miku.sendMessage(metdata.id, teks, MessageType.text, {contextInfo: {"mentionedJid": [tag]}, quoted: falfa})
+    Pedro.sendMessage(metdata.id, teks, MessageType.text, {contextInfo: {"mentionedJid": [tag]}, quoted: falfa})
     console.log(anu)
   }
   else if(anu.restrict == 'false'){
     teks = `「 *As configuração do grupo foi alterada* 」\nAgora todos os membros podem editar as informações deste grupo`
-    miku.sendMessage(metdata.id, teks, MessageType.text, {quoted: falfa})
+    Pedro.sendMessage(metdata.id, teks, MessageType.text, {quoted: falfa})
     console.log(anu)
   }
   else if(anu.restrict == 'true'){
     teks = `「 *As configuração do grupo foi alterada* 」\n\nos Membros comum não pode mais editar o grupo\nSomente admins`
-    miku.sendMessage(metdata.id, teks, MessageType.text, {quoted: falfa})
+    Pedro.sendMessage(metdata.id, teks, MessageType.text, {quoted: falfa})
     console.log(anu)
   }
 })
