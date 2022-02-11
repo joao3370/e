@@ -1022,7 +1022,6 @@ if (!welkom.includes(anu.jid)) return
             
             gbutsan = [{buttonId:`#menu`,buttonText:{displayText: 'MENU'},type:1},{buttonId:`/rg `,buttonText:{displayText:'REGISTRO📜'},type:1},{buttonId:`/criador`,buttonText:{displayText: `CRIADOR♣️`},type:1}]
 
-			mhan = await Pedro.prepareMessage(mdata.id, buff, MessageType.image, {thumbnail: buff})
 
 const buttonMessages = { imageMessage: mhan.message.imageMessage,
 
