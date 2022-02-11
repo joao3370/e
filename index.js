@@ -10249,7 +10249,7 @@ await limitAdd(sender)
 break
 case 'menubotao':
 
-Pedro = fs.readFileSync('./Pedro.jpg')
+Pedro = fs.readFileSync('./miku.jpg')
 
 sacole = await Pedro.prepareMessage(from, Pedro, MessageType.image)
 
