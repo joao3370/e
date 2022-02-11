@@ -1023,7 +1023,7 @@ if (!welkom.includes(anu.jid)) return
             gbutsan = [{buttonId:`#menu`,buttonText:{displayText: 'MENU'},type:1},{buttonId:`/rg `,buttonText:{displayText:'REGISTRO📜'},type:1},{buttonId:`/criador`,buttonText:{displayText: `CRIADOR♣️`},type:1}]
 
 
-const buttonMessages = { imageMessage: mek.message.imageMessage,
+const buttonMessages = { imageMessage: sacole.message.imageMessage,
 
 contentText: `${teks}`,
 
