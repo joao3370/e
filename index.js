@@ -996,7 +996,7 @@ if(antifake.includes(anu.jid)) {
 		}		
 if (!welkom.includes(anu.jid)) return
       try {
-         const mdata = await miku.groupMetadata(anu.jid)
+         const mdata = await Pedro.groupMetadata(anu.jid)
          num = anu.participants[0]
          console.log(anu)
          ini_user = Pedro.contacts[num]
